@@ -4,7 +4,7 @@ import puzzleN.GameConsoleWriter
 import scala.util.Random
 
 object Main extends App {
-  val random = new Random(10)
+  val random = new Random
   val game   = Puzzle15Game(random)
 
   GameConsoleWriter.sayHi()
