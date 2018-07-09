@@ -16,13 +16,13 @@ case class PuzzleNBoardState(board: Vector[Int], side: Int) extends BoardState[M
 
   def emptyPosition: Int = board.indexOf(emptyLabel)
 
-  def swap(x: Int, y: Int): Vector[Int] = {
+  def swapByLabels(x: Int, y: Int): Vector[Int] = {
     val xIdx = board.indexOf(x)
     val yIdx = board.indexOf(y)
     board.updated(xIdx, board(yIdx)).updated(yIdx, board(xIdx))
   }
 
   def doMove(move: Move): Option[PuzzleNBoardState] =
-    moveToLabel(move).map(it => this.copy(swap(emptyLabel, it)))
+    moveToLabel(move).map(it => this.copy(swapByLabels(emptyLabel, it)))
 
 }
